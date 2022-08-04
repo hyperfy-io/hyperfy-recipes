@@ -34,7 +34,7 @@ To switch which environment is running in the browser update `hyperfy.json` with
 
 ## Recipes
 
-| Recipe | Description
+| Name | Description
 | ---- | -----------
 | dialog | An emotive and interactive npc with a quest
 | door | A multiplayer synchronized animated door
