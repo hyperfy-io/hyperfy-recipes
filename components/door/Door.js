@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { DEG2RAD, useEngine, useSyncState } from 'hyperfy'
 
-import { Tween } from './tween'
+import { Tween } from './Tween'
 
 export function Door({ name, position, startOpen = false }) {
   const bodyRef = useRef()
