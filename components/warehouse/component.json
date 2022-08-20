@@ -1,0 +1,8 @@
+{
+  "id": "minter",
+  "type": "environment",
+  "title": "minter",
+  "description": "Minter example",
+  "image": null,
+  "slug": "minter"
+}
