@@ -1,0 +1,9 @@
+{
+  "id": "lava",
+  "type": "environment",
+  "title": "Lava",
+  "description": "Hang out and play a game of lava. This world is inspired by the Spleef arenas in the Minecraft community.",
+  "image": "image.png",
+  "slug": "lava",
+  "singleton": true
+}
