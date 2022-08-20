@@ -1,0 +1,8 @@
+{
+  "id": "expanse",
+  "type": "environment",
+  "title": "Expanse",
+  "description": "Can you beat the obstacle course and rank on the leaderboard!?",
+  "image": "image.png",
+  "slug": "expanse"
+}
