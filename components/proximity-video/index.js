@@ -14,7 +14,7 @@ export default function ProximityVideo() {
         <video
           height={2}
           ref={videoRef}
-          src="https://storage.googleapis.com/hyperfy-bucket/uploads/0uv533kAgmkrIqRUMP1XF.mp4"
+          src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
           autoplay={false}
         />
         <trigger
