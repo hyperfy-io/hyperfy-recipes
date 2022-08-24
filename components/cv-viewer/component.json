@@ -1,0 +1,9 @@
+{
+  "id": "cv-viewer",
+  "type": "environment",
+  "title": "CryptoVoxels Viewer",
+  "description": "View and export CryptoVoxels parcels to GLB",
+  "image": "image.png",
+  "slug": "cv-viewer",
+  "singleton": true
+}
