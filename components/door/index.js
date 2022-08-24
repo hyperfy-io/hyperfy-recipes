@@ -23,6 +23,7 @@ export default function Environment() {
       <Door name="right" position={[2, 0, -5]} startOpen />
 
       <rigidbody>
+        // the floor
         <box
           color="#1c1d1c"
           size={[1000, 0.1, 1000]}
