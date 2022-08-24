@@ -25,6 +25,7 @@ export default function ProximityVideo() {
       </group>
 
       <rigidbody>
+        // the floor
         <box
           color="#1c1d1c"
           size={[1000, 0.1, 1000]}

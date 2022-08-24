@@ -1,0 +1,8 @@
+{
+  "id": "web3",
+  "type": "environment",
+  "title": "Web 3",
+  "description": "Example of interacting with EVM contracts",
+  "image": null,
+  "slug": "web3"
+}

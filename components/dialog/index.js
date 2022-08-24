@@ -22,6 +22,7 @@ export default function Environment() {
       <Erika position={[0, 0, -6]} teddyPosition={[0, 0, 3]} />
 
       <rigidbody>
+        // the floor
         <box
           color="#1c1d1c"
           size={[1000, 0.1, 1000]}
