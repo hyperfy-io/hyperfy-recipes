@@ -1,9 +1,9 @@
 {
-  "id": "cv-viewer",
+  "id": "numpad",
   "type": "environment",
-  "title": "CryptoVoxels Viewer",
+  "title": "Numpad",
   "description": "View and export CryptoVoxels parcels to GLB",
   "image": "image.png",
-  "slug": "cv-viewer",
+  "slug": "numpad",
   "singleton": true
 }

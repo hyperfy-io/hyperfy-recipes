@@ -1,62 +1,34 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react'
-import { DEG2RAD, Euler, useEngine, useSyncState, useServer } from 'hyperfy'
+import React, { useEffect, useState } from 'react'
+import { useSyncState } from 'hyperfy'
 
-// 39: Orange Bitcoin
-// 44: Black AFrame House, needs default textures
-// 117: Nice house
-// 26: Lion
-// 308: Trees
-// 702: pillars https://www.cryptovoxels.com/play?coords=W@91E,247S,0.5U
-
-const parcels = []
-let i = 0
-while (i < 200) {
-  parcels.push(++i)
-}
-
-export default function CVViewer() {
-  // const { teleport } = useEngine()
-  const parcelRef = useRef()
-  const [view] = useSyncState(s => s.view)
+export default function Environment() {
 
   return (
     <environment>
-      <hdr src="sky.hdr" />
-      <skysphere src="sky.png" encoding="srgb" />
-      <flying />
       <rigidbody position={[0, -0.065, 0]}>
         <box size={[1000, 0.1, 1000]} color={0x313131} />
       </rigidbody>
       <spawn position={[0, 0, 0]} />
-
-      {/* {parcels.map(parcel => (
-        <cvparcel key={parcel} parcel={parcel} alignToGrid />
-      ))}
-      <trigger
-        size={1}
-        position={[2, 0, 0]}
-        onEnter={avatarUid => {
-          teleport(avatarUid, [0, 200, 0])
-        }}
-      />
-      <box size={1} position={[2, 0, 0]} /> */}
-
-      {view && (
-        <cvparcel
-          ref={parcelRef}
-          parcel={view}
-          position={[10, -2, -10]}
-          rotation={[0, -90 * DEG2RAD, 0]}
-        />
-      )}
-
-      <Panel onDownload={() => parcelRef.current?.download()} />
+      <Panel/>
     </environment>
   )
 }
 
-function Panel({ onDownload }) {
+function Panel() {
   const [input, dispatch] = useSyncState(s => s.input)
+  const [submission, setSubmission] = useState('')
+
+  useEffect(() => {
+    // logs live input
+    // all users can see this due to useSyncState
+    console.log(input)
+  }, [input])
+
+  useEffect(() => {
+    // logs submission
+    // only the user who submitted the input can see this
+    console.log(submission)
+  }, [submission])
 
   function onBtnPush(btn) {
     if (btn.num !== undefined) {
@@ -67,48 +39,21 @@ function Panel({ onDownload }) {
     }
   }
 
-  function prev() {
-    if (!input) return
-    const val = parseInt(input) - 1 + ''
-    if (val <= 0) return
-    dispatch('setInput', val)
-    dispatch('setView', val)
-  }
-
-  function next() {
-    if (!input) return
-    const val = parseInt(input) + 1 + ''
-    dispatch('setInput', val)
-    dispatch('setView', val)
-  }
-
   return (
     <panel
-      size={[2, 2]}
+      // panel background
+      size={[1, 1]}
       canvasSize={[1024, 1024]}
       unitSize={1.066666}
       style={{ bg: 'rgba(0,0,0,.5)', radius: 50 }}
       position={[0, 1.2, -2]}
     >
+      {/* input display */}
       <rect
         style={{
           top: 40,
-          left: 40,
-          height: 120,
-          width: 120,
-          bg: '#3D69DA',
-          fontSize: 80,
-          radius: 20,
-        }}
-        onClick={prev}
-      >
-        {'<'}
-      </rect>
-      <rect
-        style={{
-          top: 40,
-          left: 190,
-          right: 190,
+          left: 250,
+          right: 250,
           height: 120,
           color: 'white',
           bg: 'black',
@@ -119,29 +64,17 @@ function Panel({ onDownload }) {
       >
         {input}
       </rect>
-      <rect
-        style={{
-          top: 40,
-          right: 40,
-          height: 120,
-          width: 120,
-          bg: '#3D69DA',
-          fontSize: 80,
-          radius: 20,
-        }}
-        onClick={next}
-      >
-        {'>'}
-      </rect>
+
+      {/* numpad */}
       <rect
         style={{
           top: 220,
           left: 290,
           height: 520,
           width: 390,
-          // bg: 'blue',
         }}
       >
+        {/* buttons */}
         {buttons.map((btn, idx) => (
           <rect
             key={idx}
@@ -160,10 +93,11 @@ function Panel({ onDownload }) {
           </rect>
         ))}
       </rect>
+      {/* enter button */}
       <rect
         style={{
           top: 800,
-          left: 40,
+          left: 280,
           width: 420,
           height: 120,
           bg: '#3D69DA',
@@ -171,25 +105,10 @@ function Panel({ onDownload }) {
           radius: 20,
         }}
         onClick={() => {
-          console.log('setView', input)
-          dispatch('setView', input)
+          setSubmission(input)
         }}
       >
-        View
-      </rect>
-      <rect
-        style={{
-          top: 800,
-          right: 40,
-          width: 420,
-          height: 120,
-          bg: '#3D69DA',
-          fontSize: 60,
-          radius: 20,
-        }}
-        onClick={onDownload}
-      >
-        Download
+        Enter
       </rect>
     </panel>
   )
