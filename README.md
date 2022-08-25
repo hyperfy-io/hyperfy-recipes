@@ -41,3 +41,4 @@ To switch which environment is running in the browser update `hyperfy.json` with
 | proximity-video | A video that plays when you get near, and stops when you leave. |
 | web3            | A short demo on interacting with blockchain contracts           |
 | teleporters     | A click activated teleporter and a trigger activated telepad    |
+| numpad          | A numpad for user input in VR                                   |
