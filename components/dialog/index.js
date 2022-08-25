@@ -17,12 +17,11 @@ import { Erika } from './Erika'
 export default function Environment() {
   return (
     <environment>
-      <spawn />
-
       <Erika position={[0, 0, -6]} teddyPosition={[0, 0, 3]} />
 
+      {/* spawn point & ground */}
+      <spawn />
       <rigidbody>
-        // the floor
         <box
           color="#1c1d1c"
           size={[1000, 0.1, 1000]}

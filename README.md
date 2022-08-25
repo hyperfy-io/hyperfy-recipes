@@ -38,6 +38,6 @@ To switch which environment is running in the browser update `hyperfy.json` with
 | --------------- | --------------------------------------------------------------- |
 | dialog          | An emotive and interactive npc with a quest                     |
 | door            | A multiplayer synchronized animated door                        |
-| proximity-video | A video that plays when you get near, and stops when you leave. |
+| trigger         | A video that plays when you get near, and stops when you leave. |
 | web3            | A short demo on interacting with blockchain contracts           |
 | teleporters     | A click activated teleporter and a trigger activated telepad    |

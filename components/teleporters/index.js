@@ -32,7 +32,7 @@ export default function Teleporter() {
         />
       </group>
 
-      {/* ground and spawn point */}
+      {/* spawn point & ground */}
       <spawn />
       <rigidbody>
         <box
