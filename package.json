@@ -3,13 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "hyperfy-tools dev",
-    "build": "hyperfy-tools build",
-    "start": "hyperfy-tools start",
-    "connect": "hyperfy-tools connect",
-    "disconnect": "hyperfy-tools disconnect",
-    "deploy": "hyperfy-tools deploy",
-    "delete": "hyperfy-tools delete"
+    "dev": "hyperfy-tools dev"
   },
   "devDependencies": {
     "hyperfy-tools": "2.2.1"
