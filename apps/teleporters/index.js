@@ -1,11 +1,15 @@
 import React from 'react'
-import { useEngine } from 'hyperfy'
+import { useWorld } from 'hyperfy'
 
-export default function Teleporter() {
-  const engine = useEngine()
+export default function App() {
+  const world = useWorld()
 
   return (
-    <environment>
+    <app>
+      {/* a place up in the sky to be teleported to */}
+      <place label="up-high" position={[0, 10, 0]} />
+      <place label="far-away" position={[0, 0, 10]} rotationY={0} />
+
       {/* text that teleports when you click */}
       <billboard position={[-2, 1.6, -5]} axis="y">
         <text
@@ -14,9 +18,8 @@ export default function Teleporter() {
           color="white"
           bgRadius={0.1}
           padding={0.2}
-          onClick={e => {
-            console.log(e)
-            e.avatar.teleport([0, 0, 10])
+          onClick={() => {
+            world.teleport(null, 'up-high')
           }}
         />
       </billboard>
@@ -26,21 +29,11 @@ export default function Teleporter() {
         <box size={[2, 0.1, 2]} />
         <trigger
           size={2}
-          onEnter={avatarId => {
-            engine.getAvatar(avatarId).teleport([0, 0, 10])
+          onEnter={() => {
+            world.teleport(null, 'far-away')
           }}
         />
       </group>
-
-      {/* spawn point & ground */}
-      <spawn />
-      <rigidbody>
-        <box
-          color="#1c1d1c"
-          size={[1000, 0.1, 1000]}
-          position={[0, -0.05, 0]}
-        />
-      </rigidbody>
-    </environment>
+    </app>
   )
 }

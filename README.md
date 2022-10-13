@@ -28,9 +28,9 @@ Visit `localhost:4000` in your browser
 
 ## Previewing
 
-Each recipe runs in it's own environment.
+Hit `Tab` to open the editor.
 
-To switch which environment is running in the browser update `hyperfy.json` with the name of the recipe.
+All the recipes in /apps will be shown here for you to add to the world.
 
 ## Recipes
 

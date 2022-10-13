@@ -14,20 +14,10 @@ import { Erika } from './Erika'
  * features.
  */
 
-export default function Environment() {
+export default function App() {
   return (
-    <environment>
+    <app>
       <Erika position={[0, 0, -6]} teddyPosition={[0, 0, 3]} />
-
-      {/* spawn point & ground */}
-      <spawn />
-      <rigidbody>
-        <box
-          color="#1c1d1c"
-          size={[1000, 0.1, 1000]}
-          position={[0, -0.05, 0]}
-        />
-      </rigidbody>
-    </environment>
+    </app>
   )
 }

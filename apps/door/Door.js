@@ -1,11 +1,11 @@
 import React, { useRef, useEffect } from 'react'
-import { DEG2RAD, useEngine, useSyncState } from 'hyperfy'
+import { DEG2RAD, useWorld, useSyncState } from 'hyperfy'
 
 import { Tween } from './Tween'
 
 export function Door({ name, position, startOpen = false }) {
   const bodyRef = useRef()
-  const engine = useEngine()
+  const world = useWorld()
   const [door, dispatch] = useSyncState(state => {
     const door = state.doors[name]
     if (door) {
@@ -21,8 +21,8 @@ export function Door({ name, position, startOpen = false }) {
   useEffect(() => {
     const body = bodyRef.current
     const tween = door.open ? openTween : closeTween
-    let t = engine.getServerTime() - door.time
-    return engine.onUpdate(delta => {
+    let t = world.getServerTime() - door.time
+    return world.onUpdate(delta => {
       t += delta
       tween.set(t)
       body.setRotationY(tween.value.rotationY)
@@ -35,7 +35,7 @@ export function Door({ name, position, startOpen = false }) {
         ref={bodyRef}
         src="door.glb"
         onClick={() =>
-          dispatch('setDoor', name, !door.open, engine.getServerTime())
+          dispatch('setDoor', name, !door.open, world.getServerTime())
         }
       />
     </rigidbody>

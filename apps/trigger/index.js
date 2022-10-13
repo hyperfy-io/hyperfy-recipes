@@ -4,10 +4,10 @@ import React, { useRef } from 'react'
  * This recipe shows how to make a video play when you get near it (and stop when you walk away) using a trigger box
  */
 
-export default function Trigger() {
+export default function App() {
   const videoRef = useRef()
   return (
-    <environment>
+    <app>
       <group position={[0, 1.5, -10]}>
         <video
           height={2}
@@ -21,16 +21,6 @@ export default function Trigger() {
           onLeave={() => videoRef.current.pause()}
         />
       </group>
-
-      {/* spawn point & ground */}
-      <spawn />
-      <rigidbody>
-        <box
-          color="#1c1d1c"
-          size={[1000, 0.1, 1000]}
-          position={[0, -0.05, 0]}
-        />
-      </rigidbody>
-    </environment>
+    </app>
   )
 }
