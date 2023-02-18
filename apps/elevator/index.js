@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { useWorld, DEG2RAD } from 'hyperfy'
 
-import { Tween } from './tween'
+import { Tween } from './Tween'
 
 const anim = new Tween({ y: 0, r: 0 })
   .wait(1)
